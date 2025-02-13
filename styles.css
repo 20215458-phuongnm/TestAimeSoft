@@ -1,0 +1,364 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.content-container {
+    display: flex;
+    flex-direction: column;
+}
+
+/* .container {
+    max-width: 400px;
+    margin: auto;
+    background: rgb(255, 255, 255);
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+} */
+
+/* Khung bao bọc */
+.main-box {
+    border: 1px solid #ccc; /* Viền xám nhẹ */
+    border-radius: 8px;
+    background: rgb(255, 247, 247);
+    margin-bottom: 15px;
+    
+}
+
+
+/* Header */
+.header {
+    background: #023164; /* Chuyển sang màu xanh đậm */
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 5px 5px 0 0;
+    position: relative;
+    
+}
+
+.header::after {
+    content: "\f1e3"; /* Unicode của icon bóng đá */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 200px; /* Điều chỉnh kích thước */
+    color: rgba(255, 255, 255, 0.2); /* Màu trắng mờ */
+    position: absolute;
+    left: 10px; /* Căn lề phải */
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Gạch dọc màu cam bên trái */
+.header::before {
+    content: "";
+    width: 3px;
+    height: 50%;
+    background: rgb(255, 94, 0); /* Màu cam */
+    position: absolute;
+    left: 0;
+    top: 50;
+}
+
+
+/* Header */
+.header span {
+    font-weight: bold; /* Làm chữ in đậm */
+}
+
+
+.view-all {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+/* Dropdown */
+.league-selector {
+    background: rgb(255, 255, 255);
+    padding: 8px;
+}
+
+.league-selector select {
+    width: 45.5%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Thanh chọn ngày */
+.days-scroll {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 5px 0 5px;
+    flex-wrap: wrap;
+    gap: 5px;
+    white-space: nowrap; /* Ngăn chữ bị xuống dòng */
+    flex-wrap: nowrap; /* Ngăn các phần tử xuống dòng */
+    overflow-x: auto;
+}
+
+/* Nút ngày */
+.day {
+    background: none;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    flex: 1;
+    min-width: 45px;
+    max-width: 55px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5px 0;
+    border-radius: 5px;
+}
+
+/* Thứ (Thứ 2, Thứ 3, ...) */
+.day .weekday {
+    font-size: 9px;
+    color: gray;
+}
+
+/* Ngày (3/2, 4/2...) */
+.day .date {
+    font-size: 12px;
+    font-weight: bold;
+    color: black;
+}
+
+/* Khi nút được chọn */
+.day.active {
+    background: rgba(255, 0, 0, 0.2); /* Nền đỏ nhạt */
+}
+
+/* Khi chọn nút, chữ chuyển sang màu đỏ */
+.day.active .weekday,
+.day.active .date {
+    color: red;
+}
+
+
+
+/* Khu vực lịch bóng đá */
+.schedule-container {
+    max-height: 300px;
+    width: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 5px;
+}
+
+.match {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background: white;
+    border-radius: 8px;
+    margin: 5px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.team {
+    display: flex;
+    align-items: center;
+    width: 40%;
+}
+
+.team-name {
+    font-size: 14px; 
+    flex: 1;
+}
+
+
+.team-left {
+    justify-content: flex-end; /* Căn phải cho team1 */
+    text-align: right;
+}
+
+.team-right {
+    justify-content: flex-start; /* Căn trái cho team2 */
+    text-align: left;
+}
+
+.team-logo {
+    width: 35px;
+    height: 35px;
+    margin: 0 10px;
+}
+
+.team-left .team-logo {
+    order: 2; /* Đưa logo xuống sau tên */
+}
+
+.team-right .team-logo {
+    order: -1; /* Đưa logo lên trước tên */
+}
+
+.score {
+    width: 20%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.match-score {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.match-time {
+    font-size: 12px;
+    color: rgb(82, 188, 121);
+    margin-top: 5px;
+}
+
+
+/* Các nút */
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.btn {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.btn.red {
+    background: red;
+    color: white;
+}
+
+.red-line {
+    border: none;
+    height: 2px;
+    background: red;
+    margin: 10px 0;
+}
+
+.view-all2 {
+    background: none;
+    border: none;
+    color: rgb(0, 0, 0);
+    font-size: 12px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Tin tức */
+.news-header {
+    display: flex;
+    font-size: 14px;
+    justify-content: space-between;
+    align-items: center;
+    color: red;
+    padding: 10px;
+}
+
+.news-list {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 10px;
+}
+.news-item {
+    display: flex;
+    align-items: center; /* Căn giữa ảnh và nội dung */
+    gap: 10px; /* Khoảng cách giữa ảnh và nội dung */
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.news-item img {
+    width: 170px; /* Kích thước ảnh */
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.news-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between; /* Đưa title lên trên, date xuống dưới */
+    min-height: 100px; /* Đảm bảo phần thông tin có chiều cao cố định */
+}
+
+.news-title {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px; /* Khoảng cách giữa title và date */
+}
+
+.news-date::before {
+    content: "\f017"; /* Mã Unicode của icon đồng hồ */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-right: 5px;
+    color: gray;
+}
+
+.news-date {
+    font-size: 12px;
+    color: gray;
+    margin-top: auto; /* Đẩy ngày xuống dưới cùng */
+}
+
+
+
+/* Mobile */
+@media screen and (min-width: 767px) {
+    .news-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    .news-list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .news-list {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .content-container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .red-line {
+        display: none;
+    }
+
+    .news{
+        order: -1; /* Đưa news-list lên trước trong hiển thị */
+        width: 45%; /* Chia chiều rộng */
+    }
+
+    .main-box {
+        width: 50%;
+    }
+    
+    
+
+    
+    
+}

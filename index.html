@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lịch Bóng Đá</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="content-container">
+        <div class="main-box">
+            <!-- Header Lịch Bóng Đá -->
+            <div class="header">
+                <span>LỊCH BÓNG ĐÁ VIỆT NAM</span>
+                <button class="view-all">Xem tất cả</button>
+            </div>
+
+            <!-- Dropdown chọn giải đấu -->
+            <div class="league-selector">
+                <select id="league">
+                    <option>Hạng Nhất Quốc Gia</option>
+                    <option>V-League</option>
+                </select>
+            </div>
+
+            <div class="days-scroll">
+                <button class="day active">
+                    <span class="weekday">Hôm nay</span>
+                    <span class="date">12/2</span>
+                </button>
+                <button class="day">
+                    <span class="weekday">Thứ 3</span>
+                    <span class="date">13/2</span>
+                </button>
+                <button class="day">
+                    <span class="weekday">Thứ 4</span>
+                    <span class="date">14/2</span>
+                </button>
+                <button class="day">
+                    <span class="weekday">Thứ 5</span>
+                    <span class="date">15/2</span>
+                </button>
+                <button class="day">
+                    <span class="weekday">Thứ 6</span>
+                    <span class="date">16/2</span>
+                </button>
+                <button class="day">
+                    <span class="weekday">Thứ 7</span>
+                    <span class="date">17/2</span>
+                </button>
+                <button class="day">
+                    <span class="weekday">Chủ Nhật</span>
+                    <span class="date">18/2</span>
+                </button>
+            </div>
+
+
+            <!-- Thêm script để xử lý sự kiện click -->
+            <script src="script.js"></script>
+
+
+
+            <!-- Vùng hiển thị lịch bóng đá với thanh scroll riêng -->
+            <div class="schedule-container">
+                <div class="match">
+                    <div class="team team-left">
+                        <span class="team-name">Tottenham Hotspur</span>
+                        <img src="https://images.seeklogo.com/logo-png/55/2/tottenham-hotspur-f-c-2024-logo-png_seeklogo-557792.png"
+                            alt="Tottenham Logo" class="team-logo">
+                    </div>
+                    <div class="score">
+                        <span class="match-score">0 - 3</span>
+                        <span class="match-time">Hiệp 2: 60'</span>
+                    </div>
+                    <div class="team team-right">
+                        <span class="team-name">Manchester United</span>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS-4p3kOOlTBomd4IGimMXhasccszgfrvXWg&s"
+                            alt="Manchester Logo" class="team-logo">
+
+                    </div>
+                </div>
+                <div class="match">
+                    <div class="team team-left">
+                        <span class="team-name">Arminia Bielefeld</span>
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Arminia_Bielefeld_Logo_2021%E2%80%93.svg/1200px-Arminia_Bielefeld_Logo_2021%E2%80%93.svg.png"
+                            alt="Tottenham Logo" class="team-logo">
+                    </div>
+                    <div class="score">
+                        <span class="match-score">0 - 3</span>
+                        <span class="match-time">Hiệp 2: 60'</span>
+                    </div>
+                    <div class="team team-right">
+                        <span class="team-name">Manchester United</span>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS-4p3kOOlTBomd4IGimMXhasccszgfrvXWg&s"
+                            alt="Manchester Logo" class="team-logo">
+
+                    </div>
+                </div>
+                <div class="match">
+                    <div class="team team-left">
+                        <span class="team-name">Liverpool</span>
+                        <img src="https://banner2.cleanpng.com/20190418/ceq/kisspng-liverpool-f-c-anfield-liver-bird-fa-cup-football-liverpool-fc-emblem-bird-liverpool-fc-badge-clipar-1713897850392.webp"
+                            alt="Tottenham Logo" class="team-logo">
+                    </div>
+                    <div class="score">
+                        <span class="match-score">23:30</span>
+
+                    </div>
+                    <div class="team team-right">
+                        <span class="team-name">Chelsea</span>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS-4p3kOOlTBomd4IGimMXhasccszgfrvXWg&s"
+                            alt="Manchester Logo" class="team-logo">
+
+                    </div>
+                </div>
+                <div class="match">
+                    <div class="team team-left">
+                        <span class="team-name">Real Madrid</span>
+                        <img src="https://images.seeklogo.com/logo-png/55/2/tottenham-hotspur-f-c-2024-logo-png_seeklogo-557792.png"
+                            alt="Tottenham Logo" class="team-logo">
+                    </div>
+                    <div class="score">
+                        <span class="match-score">23:30</span>
+                    </div>
+                    <div class="team team-right">
+                        <span class="team-name">Barcelona</span>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS-4p3kOOlTBomd4IGimMXhasccszgfrvXWg&s"
+                            alt="Manchester Logo" class="team-logo">
+
+                    </div>
+                </div>
+                <div class="match">
+                    <div class="team team-left">
+                        <span class="team-name">Bayern Munich</span>
+                        <img src="https://images.seeklogo.com/logo-png/55/2/tottenham-hotspur-f-c-2024-logo-png_seeklogo-557792.png"
+                            alt="Tottenham Logo" class="team-logo">
+                    </div>
+                    <div class="score">
+                        <span class="match-score">23:30</span>
+                    </div>
+                    <div class="team team-right">
+                        <span class="team-name">Borussia Dortmund</span>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS-4p3kOOlTBomd4IGimMXhasccszgfrvXWg&s"
+                            alt="Manchester Logo" class="team-logo">
+
+                    </div>
+                </div>
+                <div class="match">
+                    <div class="team team-left">
+                        <span class="team-name">Paris Saint-Germain</span>
+                        <img src="https://images.seeklogo.com/logo-png/55/2/tottenham-hotspur-f-c-2024-logo-png_seeklogo-557792.png"
+                            alt="Tottenham Logo" class="team-logo">
+                    </div>
+                    <div class="score">
+                        <span class="match-score">23:30</span>
+                    </div>
+                    <div class="team team-right">
+                        <span class="team-name">Marseille</span>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS-4p3kOOlTBomd4IGimMXhasccszgfrvXWg&s"
+                            alt="Manchester Logo" class="team-logo">
+
+                    </div>
+                </div>
+                <div class="match">
+                    <div class="team team-left">
+                        <span class="team-name">Tottenham Hotspur</span>
+                        <img src="https://images.seeklogo.com/logo-png/55/2/tottenham-hotspur-f-c-2024-logo-png_seeklogo-557792.png"
+                            alt="Tottenham Logo" class="team-logo">
+                    </div>
+                    <div class="score">
+                        <span class="match-score">23:30</span>
+                    </div>
+                    <div class="team team-right">
+                        <span class="team-name">Manchester United</span>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS-4p3kOOlTBomd4IGimMXhasccszgfrvXWg&s"
+                            alt="Manchester Logo" class="team-logo">
+
+                    </div>
+                </div>
+                <div class="match">
+                    <div class="team team-left">
+                        <span class="team-name">Tottenham Hotspur</span>
+                        <img src="https://images.seeklogo.com/logo-png/55/2/tottenham-hotspur-f-c-2024-logo-png_seeklogo-557792.png"
+                            alt="Tottenham Logo" class="team-logo">
+                    </div>
+                    <div class="score">
+                        <span class="match-score">23:30</span>
+                    </div>
+                    <div class="team team-right">
+                        <span class="team-name">Manchester United</span>
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS-4p3kOOlTBomd4IGimMXhasccszgfrvXWg&s"
+                            alt="Manchester Logo" class="team-logo">
+
+                    </div>
+                </div>
+            </div>
+            <!-- Các nút Nhận Định, Soi Kèo, Tỷ Lệ -->
+            <div class="buttons">
+                <button class="btn red">Nhận Định</button>
+                <button class="btn">Soi Kèo</button>
+                <button class="btn">Tỉ Lệ</button>
+            </div>
+        </div>
+
+
+
+        <!-- Dòng kẻ đỏ -->
+        <hr class="red-line">
+        <div class="news">
+            <!-- Phần Nhận Định Bóng Đá -->
+            <div class="news-header">
+                <h2>NHẬN ĐỊNH BÓNG ĐÁ</h2>
+                <button class="view-all2">Xem tất cả</button>
+            </div>
+
+            <!-- Danh sách tin tức -->
+            <div class="news-list">
+                <div class="news-item">
+                    <img src="https://danviet.mediacdn.vn/296231569849192448/2024/9/8/87bbf44d3fbb98e5c1aa-1725785631107592927642-1725812519448-1725812520474110401619.jpg"
+                        alt="news">
+                    <div class="news-info">
+                        <p class="news-title">Nhận định, Kết Quả Sài Gòn FC Vs Hải Phòng: Chiến thắng sát nút, băng băng
+                            về đích</p>
+                        <p class="news-date">18/10/2022</p>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrQfTrxHGXKbvZN4YxD-oZ4iFAQBQ8XvAjmK8N_-FNdmfKAiUj9yoTDRczQIplc_a3-c4&usqp=CAU"
+                        alt="news">
+                    <div class="news-info">
+                        <p class="news-title">Nhận định, Kết Quả Sài Gòn FC Vs Hải Phòng: Chiến thắng sát nút, băng băng
+                            về đích</p>
+                        <p class="news-date">18/10/2022</p>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <img src="https://danviet.mediacdn.vn/296231569849192448/2024/9/8/87bbf44d3fbb98e5c1aa-1725785631107592927642-1725812519448-1725812520474110401619.jpg"
+                        alt="news">
+                    <div class="news-info">
+                        <p class="news-title">Nhận định, Kết Quả Sài Gòn FC Vs Hải Phòng: Chiến thắng sát nút, băng băng
+                            về đích</p>
+                        <p class="news-date">18/10/2022</p>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrQfTrxHGXKbvZN4YxD-oZ4iFAQBQ8XvAjmK8N_-FNdmfKAiUj9yoTDRczQIplc_a3-c4&usqp=CAU"
+                        alt="news">
+                    <div class="news-info">
+                        <p class="news-title">Nhận định, Kết Quả Sài Gòn FC Vs Hải Phòng: Chiến thắng sát nút, băng băng
+                            về đích</p>
+                        <p class="news-date">18/10/2022</p>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <img src="https://danviet.mediacdn.vn/296231569849192448/2024/9/8/87bbf44d3fbb98e5c1aa-1725785631107592927642-1725812519448-1725812520474110401619.jpg"
+                        alt="news">
+                    <div class="news-info">
+                        <p class="news-title">Nhận định, Kết Quả Sài Gòn FC Vs Hải Phòng: Chiến thắng sát nút, băng băng
+                            về đích</p>
+                        <p class="news-date">18/10/2022</p>
+                    </div>
+                </div>
+                <div class="news-item">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrQfTrxHGXKbvZN4YxD-oZ4iFAQBQ8XvAjmK8N_-FNdmfKAiUj9yoTDRczQIplc_a3-c4&usqp=CAU"
+                        alt="news">
+                    <div class="news-info">
+                        <p class="news-title">Nhận định, Kết Quả Sài Gòn FC Vs Hải Phòng: Chiến thắng sát nút, băng băng
+                            về đích</p>
+                        <p class="news-date">18/10/2022</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
