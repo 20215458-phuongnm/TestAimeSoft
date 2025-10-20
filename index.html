@@ -6,6 +6,38 @@
   <title>Chúc mừng 20/10 - Nguyễn Lê Phương Trinh 🌸</title>
   <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    /* Cho phép cuộn trên thiết bị di động */
+html, body {
+  height: 100%;
+  overflow-y: auto; /* 👈 Cho phép cuộn */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Khi hiển thị trên màn hình nhỏ */
+@media (max-width: 768px) {
+  body {
+    padding: 12px;
+    display: block; /* Cho phép nội dung dài tự cuộn */
+  }
+
+  .card {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .game-area {
+    height: 300px; /* Giảm chiều cao game để vừa màn hình */
+  }
+
+  .popup {
+    width: 90%; /* Cho popup tự co lại */
+    max-height: 80vh;
+    overflow-y: auto; /* 👈 Cho phép cuộn bên trong popup */
+    padding: 20px;
+  }
+}
+
     :root {
       --bg: #f9faf7;
       --accent: #6da77b;
