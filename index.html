@@ -1,281 +1,312 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="vi">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lịch Bóng Đá</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chúc mừng 20/10 - Nguyễn Lê Phương Trinh 🌸</title>
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f9faf7;
+      --accent: #6da77b;
+      --text: #333;
+      --muted: #777;
+      --glass: rgba(255,255,255,0.7);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, sans-serif;
+      background: linear-gradient(180deg, #f9faf7 0%, #edf5ef 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+      padding: 20px;
+    }
+    .card {
+      background: var(--glass);
+      backdrop-filter: blur(6px);
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.05);
+      padding: 28px;
+      max-width: 860px;
+      width: 100%;
+      border: 1px solid rgba(0,0,0,0.05);
+      z-index: 2;
+      animation: fadeIn 0.6s ease-out;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.95); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    h1 {
+      font-family: Marcellus, serif;
+      color: var(--accent);
+      font-size: 26px;
+      margin: 0 0 6px 0;
+    }
+    .subtitle {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+    .message {
+      background: #fff;
+      padding: 14px 18px;
+      border-radius: 10px;
+      border: 1px solid #eaeaea;
+      margin-bottom: 18px;
+      line-height: 1.6;
+    }
+    .game-area {
+      position: relative;
+      height: 380px;
+      border: 1px dashed #dfe8e0;
+      border-radius: 12px;
+      background: linear-gradient(180deg, #f7faf6, #ffffff);
+      overflow: hidden;
+    }
+    .flower {
+      position: absolute;
+      width: 44px;
+      height: 44px;
+      cursor: pointer;
+      transform-origin: center;
+    }
+    .hud {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+    .bubble {
+      background: #fff;
+      border: 1px solid #eaeaea;
+      border-radius: 999px;
+      padding: 6px 12px;
+      font-size: 14px;
+    }
+    button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 999px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    button:hover { background: #5d936a; }
+    footer {
+      text-align: center;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .overlay {
+      position: absolute;
+      inset: 0;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.8);
+      backdrop-filter: blur(6px);
+      animation: fadeIn 0.5s ease-out;
+      z-index: 5;
+    }
+    .overlay h2 {
+      font-family: Marcellus, serif;
+      color: var(--accent);
+      margin-bottom: 6px;
+      font-size: 22px;
+    }
+    .overlay p {
+      color: var(--muted);
+      font-size: 15px;
+    }
+    .petal {
+      position: fixed;
+      width: 24px;
+      height: 24px;
+      pointer-events: none;
+      animation: fall 3s linear forwards;
+      z-index: 1;
+    }
+    @keyframes fall {
+      0% { transform: translateY(0) scale(0.8) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(600px) scale(1.3) rotate(360deg); opacity: 0; }
+    }
+    .popup {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.8);
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+      padding: 30px;
+      text-align: center;
+      width: 320px;
+      z-index: 10;
+      opacity: 0;
+      animation: popupShow 0.5s forwards ease-out;
+    }
+    @keyframes popupShow {
+      to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+    }
+  </style>
 </head>
-
 <body>
-    <div class="content-container">
-        <div class="main-box">
-            <!-- Header Lịch Bóng Đá -->
-            <div class="header">
-                <span>LỊCH BÓNG ĐÁ VIỆT NAM</span>
-                <button class="view-all">Xem tất cả</button>
-            </div>
+  <div class="card">
+    <h1>Chúc mừng 20/10, Nguyễn Lê Phương Trinh 🌼</h1>
+    <p class="subtitle">Chơi đi "vui" lắm.</p>
 
-            <!-- Dropdown chọn giải đấu -->
-            <div class="league-selector">
-                <select id="league">
-                    <option>Hạng Nhất Quốc Gia</option>
-                    <option>V-League</option>
-                </select>
-            </div>
-
-            <div class="days-scroll">
-                <button class="day active">
-                    <span class="weekday">Hôm nay</span>
-                    <span class="date">12/2</span>
-                </button>
-                <button class="day">
-                    <span class="weekday">Thứ 3</span>
-                    <span class="date">13/2</span>
-                </button>
-                <button class="day">
-                    <span class="weekday">Thứ 4</span>
-                    <span class="date">14/2</span>
-                </button>
-                <button class="day">
-                    <span class="weekday">Thứ 5</span>
-                    <span class="date">15/2</span>
-                </button>
-                <button class="day">
-                    <span class="weekday">Thứ 6</span>
-                    <span class="date">16/2</span>
-                </button>
-                <button class="day">
-                    <span class="weekday">Thứ 7</span>
-                    <span class="date">17/2</span>
-                </button>
-                <button class="day">
-                    <span class="weekday">Chủ Nhật</span>
-                    <span class="date">18/2</span>
-                </button>
-            </div>
-
-
-           
-            <script src="script.js"></script>
-
-
-
-            <!-- Vùng hiển thị lịch bóng đá  -->
-            <div class="schedule-container">
-                <div class="match">
-                    <div class="team team-left">
-                        <span class="team-name">Tottenham Hotspur</span>
-                        <img src="https://images.seeklogo.com/logo-png/55/2/tottenham-hotspur-f-c-2024-logo-png_seeklogo-557792.png"
-                            alt="Tottenham Logo" class="team-logo">
-                    </div>
-                    <div class="score">
-                        <span class="match-score">0 - 3</span>
-                        <span class="match-time">Hiệp 2: 60'</span>
-                    </div>
-                    <div class="team team-right">
-                        <span class="team-name">Manchester United</span>
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS-4p3kOOlTBomd4IGimMXhasccszgfrvXWg&s"
-                            alt="Manchester Logo" class="team-logo">
-
-                    </div>
-                </div>
-                <div class="match">
-                    <div class="team team-left">
-                        <span class="team-name">Arminia Bielefeld</span>
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Arminia_Bielefeld_Logo_2021%E2%80%93.svg/1200px-Arminia_Bielefeld_Logo_2021%E2%80%93.svg.png"
-                            alt="Tottenham Logo" class="team-logo">
-                    </div>
-                    <div class="score">
-                        <span class="match-score">0 - 3</span>
-                        <span class="match-time">Hiệp 2: 60'</span>
-                    </div>
-                    <div class="team team-right">
-                        <span class="team-name">Manchester United</span>
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS-4p3kOOlTBomd4IGimMXhasccszgfrvXWg&s"
-                            alt="Manchester Logo" class="team-logo">
-
-                    </div>
-                </div>
-                <div class="match">
-                    <div class="team team-left">
-                        <span class="team-name">Liverpool</span>
-                        <img src="https://banner2.cleanpng.com/20190418/ceq/kisspng-liverpool-f-c-anfield-liver-bird-fa-cup-football-liverpool-fc-emblem-bird-liverpool-fc-badge-clipar-1713897850392.webp"
-                            alt="Tottenham Logo" class="team-logo">
-                    </div>
-                    <div class="score">
-                        <span class="match-score">23:30</span>
-
-                    </div>
-                    <div class="team team-right">
-                        <span class="team-name">Chelsea</span>
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS-4p3kOOlTBomd4IGimMXhasccszgfrvXWg&s"
-                            alt="Manchester Logo" class="team-logo">
-
-                    </div>
-                </div>
-                <div class="match">
-                    <div class="team team-left">
-                        <span class="team-name">Real Madrid</span>
-                        <img src="https://images.seeklogo.com/logo-png/55/2/tottenham-hotspur-f-c-2024-logo-png_seeklogo-557792.png"
-                            alt="Tottenham Logo" class="team-logo">
-                    </div>
-                    <div class="score">
-                        <span class="match-score">23:30</span>
-                    </div>
-                    <div class="team team-right">
-                        <span class="team-name">Barcelona</span>
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS-4p3kOOlTBomd4IGimMXhasccszgfrvXWg&s"
-                            alt="Manchester Logo" class="team-logo">
-
-                    </div>
-                </div>
-                <div class="match">
-                    <div class="team team-left">
-                        <span class="team-name">Bayern Munich</span>
-                        <img src="https://images.seeklogo.com/logo-png/55/2/tottenham-hotspur-f-c-2024-logo-png_seeklogo-557792.png"
-                            alt="Tottenham Logo" class="team-logo">
-                    </div>
-                    <div class="score">
-                        <span class="match-score">23:30</span>
-                    </div>
-                    <div class="team team-right">
-                        <span class="team-name">Borussia Dortmund</span>
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS-4p3kOOlTBomd4IGimMXhasccszgfrvXWg&s"
-                            alt="Manchester Logo" class="team-logo">
-
-                    </div>
-                </div>
-                <div class="match">
-                    <div class="team team-left">
-                        <span class="team-name">Paris Saint-Germain</span>
-                        <img src="https://images.seeklogo.com/logo-png/55/2/tottenham-hotspur-f-c-2024-logo-png_seeklogo-557792.png"
-                            alt="Tottenham Logo" class="team-logo">
-                    </div>
-                    <div class="score">
-                        <span class="match-score">23:30</span>
-                    </div>
-                    <div class="team team-right">
-                        <span class="team-name">Marseille</span>
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS-4p3kOOlTBomd4IGimMXhasccszgfrvXWg&s"
-                            alt="Manchester Logo" class="team-logo">
-
-                    </div>
-                </div>
-                <div class="match">
-                    <div class="team team-left">
-                        <span class="team-name">Tottenham Hotspur</span>
-                        <img src="https://images.seeklogo.com/logo-png/55/2/tottenham-hotspur-f-c-2024-logo-png_seeklogo-557792.png"
-                            alt="Tottenham Logo" class="team-logo">
-                    </div>
-                    <div class="score">
-                        <span class="match-score">23:30</span>
-                    </div>
-                    <div class="team team-right">
-                        <span class="team-name">Manchester United</span>
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS-4p3kOOlTBomd4IGimMXhasccszgfrvXWg&s"
-                            alt="Manchester Logo" class="team-logo">
-
-                    </div>
-                </div>
-                <div class="match">
-                    <div class="team team-left">
-                        <span class="team-name">Tottenham Hotspur</span>
-                        <img src="https://images.seeklogo.com/logo-png/55/2/tottenham-hotspur-f-c-2024-logo-png_seeklogo-557792.png"
-                            alt="Tottenham Logo" class="team-logo">
-                    </div>
-                    <div class="score">
-                        <span class="match-score">23:30</span>
-                    </div>
-                    <div class="team team-right">
-                        <span class="team-name">Manchester United</span>
-                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS-4p3kOOlTBomd4IGimMXhasccszgfrvXWg&s"
-                            alt="Manchester Logo" class="team-logo">
-
-                    </div>
-                </div>
-            </div>
-            <!-- Các nút Nhận Định, Soi Kèo, Tỷ Lệ -->
-            <div class="buttons">
-                <button class="btn red">Nhận Định</button>
-                <button class="btn">Soi Kèo</button>
-                <button class="btn">Tỉ Lệ</button>
-            </div>
-        </div>
-
-
-
-        <!-- Dòng kẻ đỏ -->
-        <hr class="red-line">
-
-        <div class="news">
-            <!-- Phần Nhận Định Bóng Đá -->
-            <div class="news-header">
-                <h2>NHẬN ĐỊNH BÓNG ĐÁ</h2>
-                <button class="view-all2">Xem tất cả</button>
-            </div>
-
-            <!-- Danh sách tin tức -->
-            <div class="news-list">
-                <div class="news-item">
-                    <img src="https://danviet.mediacdn.vn/296231569849192448/2024/9/8/87bbf44d3fbb98e5c1aa-1725785631107592927642-1725812519448-1725812520474110401619.jpg"
-                        alt="news">
-                    <div class="news-info">
-                        <p class="news-title">Nhận định, Kết Quả Sài Gòn FC Vs Hải Phòng: Chiến thắng sát nút, băng băng
-                            về đích</p>
-                        <p class="news-date">18/10/2022</p>
-                    </div>
-                </div>
-                <div class="news-item">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrQfTrxHGXKbvZN4YxD-oZ4iFAQBQ8XvAjmK8N_-FNdmfKAiUj9yoTDRczQIplc_a3-c4&usqp=CAU"
-                        alt="news">
-                    <div class="news-info">
-                        <p class="news-title">Nhận định, Kết Quả Sài Gòn FC Vs Hải Phòng: Chiến thắng sát nút, băng băng
-                            về đích</p>
-                        <p class="news-date">18/10/2022</p>
-                    </div>
-                </div>
-                <div class="news-item">
-                    <img src="https://danviet.mediacdn.vn/296231569849192448/2024/9/8/87bbf44d3fbb98e5c1aa-1725785631107592927642-1725812519448-1725812520474110401619.jpg"
-                        alt="news">
-                    <div class="news-info">
-                        <p class="news-title">Nhận định, Kết Quả Sài Gòn FC Vs Hải Phòng: Chiến thắng sát nút, băng băng
-                            về đích</p>
-                        <p class="news-date">18/10/2022</p>
-                    </div>
-                </div>
-                <div class="news-item">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrQfTrxHGXKbvZN4YxD-oZ4iFAQBQ8XvAjmK8N_-FNdmfKAiUj9yoTDRczQIplc_a3-c4&usqp=CAU"
-                        alt="news">
-                    <div class="news-info">
-                        <p class="news-title">Nhận định, Kết Quả Sài Gòn FC Vs Hải Phòng: Chiến thắng sát nút, băng băng
-                            về đích</p>
-                        <p class="news-date">18/10/2022</p>
-                    </div>
-                </div>
-                <div class="news-item">
-                    <img src="https://danviet.mediacdn.vn/296231569849192448/2024/9/8/87bbf44d3fbb98e5c1aa-1725785631107592927642-1725812519448-1725812520474110401619.jpg"
-                        alt="news">
-                    <div class="news-info">
-                        <p class="news-title">Nhận định, Kết Quả Sài Gòn FC Vs Hải Phòng: Chiến thắng sát nút, băng băng
-                            về đích</p>
-                        <p class="news-date">18/10/2022</p>
-                    </div>
-                </div>
-                <div class="news-item">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrQfTrxHGXKbvZN4YxD-oZ4iFAQBQ8XvAjmK8N_-FNdmfKAiUj9yoTDRczQIplc_a3-c4&usqp=CAU"
-                        alt="news">
-                    <div class="news-info">
-                        <p class="news-title">Nhận định, Kết Quả Sài Gòn FC Vs Hải Phòng: Chiến thắng sát nút, băng băng
-                            về đích</p>
-                        <p class="news-date">18/10/2022</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <div class="message">
+      <p>Chúc luôn mạnh mẽ, dịu dàng và ngập tràn niềm vui như những cánh hoa xuân.  
+      Hãy thử “bắt hoa” trong 20 giây xem bạn thu được bao nhiêu đê🌸</p>
     </div>
-</body>
 
+    <div class="hud">
+      <div class="bubble">⏱ <span id="timeDisplay">20</span>s</div>
+      <div class="bubble">🌼 <span id="scoreDisplay">0</span></div>
+      <div class="bubble">Mục tiêu: <span id="targetDisplay">15</span></div>
+    </div>
+
+    <div class="game-area" id="gameArea">
+      <div id="flowers"></div>
+      <div class="overlay" id="overlay">
+        <h2 id="resultTitle"></h2>
+        <p id="resultMsg"></p>
+        <button id="replayBtn">Chơi lại</button>
+      </div>
+    </div>
+
+    <div class="controls" style="margin-top:10px;">
+      <button id="startBtn">Bắt đầu</button>
+    </div>
+
+    <footer>Thiết kế bởi NMP (&chatgpt) 🌿</footer>
+  </div>
+
+  <script>
+    const DURATION = 20, TARGET = 15, INTERVAL = 800;
+    const gameArea = document.getElementById('gameArea');
+    const startBtn = document.getElementById('startBtn');
+    const timeDisplay = document.getElementById('timeDisplay');
+    const scoreDisplay = document.getElementById('scoreDisplay');
+    const overlay = document.getElementById('overlay');
+    const resultTitle = document.getElementById('resultTitle');
+    const resultMsg = document.getElementById('resultMsg');
+    const replayBtn = document.getElementById('replayBtn');
+
+    let score = 0, timeLeft = DURATION, timer, spawn, running = false;
+
+    const flowerSVGs = [
+      `<svg viewBox="0 0 24 24"><path fill="#f2b6c1" d="M12 2c-2 1-3 3-3 5-2 0-4 1-5 3 1 2 3 3 5 3-2 1-3 3-3 5 2 1 4 1 5-1 0 2 1 4 3 5 2-1 3-3 3-5 1 2 3 2 5 1 0-2-1-4-3-5 2 0 4-1 5-3-1-2-3-3-5-3 0-2-1-4-3-5z"/></svg>`,
+      `<svg viewBox="0 0 24 24"><path fill="#ffd1dc" d="M12 2c-1.5 1-2 2.5-2 4-1.5 0-3 0.5-4 2 0.5 1.5 2 2.5 3.5 2.5-1.5 1-2.5 2.5-2.5 4 1 1.5 2.5 1.5 4 1 0 1.5 0.5 3 2 4 1.5-1 2-2.5 2-4 1.5 0.5 3 0.5 4-1 0-1.5-1-3-2.5-4 1.5 0 3-1 3.5-2.5-1-1.5-2.5-2-4-2 0-1.5-0.5-3-2-4z"/></svg>`,
+      `<svg viewBox="0 0 24 24"><path fill="#a7d3a9" d="M12 2c-1 2-2 3-3 4s-2 2-4 3c2 1 3 2 4 3s2 2 3 4c1-2 2-3 3-4s2-2 4-3c-2-1-3-2-4-3s-2-2-3-4z"/></svg>`
+    ];
+
+    function startGame() {
+      if (running) return;
+      running = true;
+      score = 0; timeLeft = DURATION;
+      scoreDisplay.textContent = score;
+      timeDisplay.textContent = timeLeft;
+      overlay.style.display = 'none';
+      startBtn.style.display = 'none';
+
+      spawn = setInterval(spawnFlower, INTERVAL);
+      timer = setInterval(() => {
+        timeLeft--;
+        timeDisplay.textContent = timeLeft;
+        if (timeLeft <= 0) endGame();
+      }, 1000);
+    }
+
+    function spawnFlower() {
+      const f = document.createElement('div');
+      f.className = 'flower';
+      f.innerHTML = flowerSVGs[Math.floor(Math.random() * flowerSVGs.length)];
+      f.style.left = Math.random() * (gameArea.clientWidth - 40) + 'px';
+      f.style.top = '-40px';
+      const speed = 1 + Math.random() * 2;
+      gameArea.appendChild(f);
+
+      let y = -40;
+      const fall = setInterval(() => {
+        y += speed;
+        f.style.top = y + 'px';
+        if (y > gameArea.clientHeight) {
+          clearInterval(fall);
+          f.remove();
+        }
+      }, 16);
+
+      f.addEventListener('click', () => {
+        score++;
+        scoreDisplay.textContent = score;
+        f.remove();
+        clearInterval(fall);
+        if (score >= TARGET) endGame(true);
+      });
+    }
+
+    function endGame(win = false) {
+      running = false;
+      clearInterval(timer);
+      clearInterval(spawn);
+      if (score >= TARGET || win) {
+        resultTitle.textContent = "🌸 Chúc mừng 20/10 🌸";
+        resultMsg.textContent = `Bạn đã bắt được ${score} bông hoa!`;
+        overlay.style.display = 'flex';
+        createFlowerExplosion();
+        showPopup();
+      } else {
+        resultTitle.textContent = "Hết giờ!";
+        resultMsg.textContent = `Bạn chỉ bắt được ${score} bông hoa, thử lại nhé 🌼`;
+        overlay.style.display = 'flex';
+      }
+    }
+
+    function createFlowerExplosion() {
+      for (let i = 0; i < 80; i++) {
+        const petal = document.createElement('div');
+        petal.classList.add('petal');
+        petal.innerHTML = flowerSVGs[Math.floor(Math.random() * flowerSVGs.length)];
+        petal.style.left = Math.random() * window.innerWidth + 'px';
+        petal.style.top = Math.random() * window.innerHeight / 2 + 'px';
+        document.body.appendChild(petal);
+        setTimeout(() => petal.remove(), 3000);
+      }
+    }
+
+function showPopup() {
+  const popup = document.createElement('div');
+  popup.classList.add('popup');
+  popup.innerHTML = `
+    <h2>🌷 Chúc mừng Ngày Phụ Nữ Việt Nam 🌷</h2>
+<p>
+  Gửi đến <b>Nguyễn Lê Phương Trinh</b> 🌼<br><br>
+  Chúc m có một ngày 20/10 thật vui, thật chill,
+  được cười nhiều, ăn ngon 
+  Mong m lúc nào cũng xinh đẹp, tự tin và tỏa sáng như bây giờ,
+  dù cuộc sống có quay như chong chóng thì vẫn giữ được sự “hiếu hắc” 😎💐<br><br>
+</p>
+
+    <button onclick="this.parentElement.remove()">✨ Cảm ơn ✨</button>
+  `;
+  document.body.appendChild(popup);
+}
+
+
+    startBtn.onclick = startGame;
+    replayBtn.onclick = () => { overlay.style.display = 'none'; startGame(); };
+  </script>
+</body>
 </html>
